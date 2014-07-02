@@ -45,7 +45,7 @@ describe('Statements', function() {
         stmt = statement;
       }).then(function() {
         return stmt.run();
-      }).fail(function(e) {
+      }).error(function(e) {
         assert(false, 'Unexpected error: ' + e);
       }).done(function() {
         done();
@@ -60,7 +60,7 @@ describe('Statements', function() {
       }).done(done);
     });
     it('Should be able to finalize the statement', function(done) {
-      stmt.finalize().fail(function(e) {
+      stmt.finalize().error(function(e) {
         assert(false, 'Unexpected error: ' + e);
       }).done(done);
     });
@@ -88,7 +88,7 @@ describe('Statements', function() {
         return stmt.run();
       }).then(function() {
         return stmt.finalize();
-      }).fail(function(e) {
+      }).error(function(e) {
         assert(false, 'Unexpected error: ' + e);
       }).done(function() {
         done();
@@ -135,7 +135,7 @@ describe('Statements', function() {
           })(i)));
         }
         return Q.all(promises);
-      }).fail(function(e) {
+      }).error(function(e) {
         assert(false, 'Unexpected error: ' + e);
       }).done(function() {
         stmt.finalize();
@@ -178,7 +178,7 @@ describe('Statements', function() {
           }));
         }
         return Q.all(promises);
-      }).fail(function(e) {
+      }).error(function(e) {
         assert(false, 'Unexpected error: ' + e);
       }).done(function() {
         stmt.finalize();
@@ -223,7 +223,7 @@ describe('Statements', function() {
           })(i)));
         }
         return Q.all(promises);
-      }).fail(function(e) {
+      }).error(function(e) {
         assert(false, 'Unexpected error: ' + e);
       }).done(function() {
         stmt.finalize();
@@ -268,7 +268,7 @@ describe('Statements', function() {
           })(i * miniCount + 1)));
         }
         return Q.all(promises);
-      }).fail(function(e) {
+      }).error(function(e) {
         assert(false, 'Unexpected error: ' + e);
       }).done(function() {
         stmt.finalize();

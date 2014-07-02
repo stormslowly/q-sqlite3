@@ -31,7 +31,7 @@ describe('Open/Close', function(done) {
       it('Should close the database', function closeDB(done) {
         // if the database isn't open yet, wait until it is
         if(open) {
-          db.close().fail(function(e) {
+          db.close().error(function(e) {
             assert(false, 'Unexpected error: ' + e);
           }).done(done);
         } else {
@@ -108,7 +108,7 @@ describe('Open/Close', function(done) {
       it('Should close the database', function closeDB(done) {
         // if the database isn't open yet, wait until it is
         if(open) {
-          db.close().fail(function(e) {
+          db.close().error(function(e) {
             assert(false, 'Unexpected error: ' + e);
           }).done(function() {
             closed = true;
